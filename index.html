@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="style.css">
+        <title>Patriol</title>
+    </head>
+    <body>
+      <canvas id="bg"></canvas>
+        
+        <div class="fact-file hidden raise">
+          <h1>Fact File:</h1>
+          <div class="fact-content raise"></div>
+        </div>
+    
+        <div id="controls" class="controls raise">
+          <div class="planet sun raise"><button class="locate locate-sun raise" type="submit">Sun</button> </div>
+          <div class="planet raise"><button class="locate locate-mercury raise" type="submit">Mercury</button></div>
+          <div class="planet raise"><button class="locate locate-venus raise" type="submit">Venus</button></div>
+          <div class="planet raise"><button class="locate locate-earth raise" type="submit">Earth</button></div>
+          <div class="planet raise"><button class="locate locate-mars raise" type="submit">Mars</button></div>
+          <div class="planet raise"><button class="locate locate-jupiter raise" type="submit">Jupiter</button></div>
+          <div class="planet raise"><button class="locate locate-saturn raise" type="submit">Saturn</button></div>
+          <div class="planet raise"><button class="locate locate-uranus raise" type="submit">Uranus</button></div>
+          <div class="planet raise"><button class="locate locate-neptune raise" type="submit">Neptune</button></div>
+          <div class="planet raise"><button class="locate locate-pluto raise" type="submit">Pluto</button></div>
+        </div>
+ 
+        <script type="text/javascript">
+    
+          // Select the list of planets
+          let planets = document.getElementsByClassName("planet")
+          // Loop through the list
+          for(let index = 0; index < planets.length; index++){
+    
+              planets[index].onclick = function(){
+                // Remove class from sibling
+                let el = planets[0]
+                while(el){
+                    if(el.tagName === "DIV"){
+                      el.classList.remove("active")
+                    }
+                    el = el.nextSibling
+                }
+    
+                this.classList.add("active")
+              }
+          }
+        </script>
+        <script type="module" src="/main.js"></script>
+    </body>
+</html>
